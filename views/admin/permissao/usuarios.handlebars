@@ -1,0 +1,49 @@
+<div class="card" >
+  <div class="card-body">
+    {{#each usuarios}}
+        <div class="card mt-4">
+            <div class="card-body">
+                <p>
+                    {{nome}}
+                </p>
+                <p>
+                    {{email}}
+                </p>
+                {{#if (adminHelper .)}}
+                    <p>
+                    Administrador: Sim
+                    <a href="/admin/usuarios/admin/{{_id}}">
+                            <button type="submit" class="btn btn-danger">
+                                Desativar
+                        </button>
+                  </a>
+                    </p>
+                {{else}}
+                    <p>
+                    Administrador: Não
+                     <a href="/admin/usuarios/admin/{{_id}}">
+                         <button type="submit" class="btn btn-success">
+                            Ativar
+                        </button></a>
+                    </p>
+                {{/if}}
+                <a href="/admin/usuarios/edit/{{_id}}">
+                    <button type="submit" class="btn btn-success">
+                        Editar usuário
+                    </button>
+                </a>
+                <a href="">
+                    <button type="submit" class="btn btn-danger">
+                        Deletar usuário
+                    </button>
+                </a>
+                <a href="/admin/usuarios/resetPass/{{_id}}">
+                    <button type="submit" class="btn btn-warning">
+                        Resetar senha
+                    </button>
+                </a>
+            </div>
+        </div>
+    {{/each}}
+  </div>
+</div>

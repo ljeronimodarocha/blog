@@ -1,0 +1,29 @@
+<div class="jumbotron">
+    <h1 class="display-4">Bem vindo ao meu <strong>Blog</strong></h1>
+    <p class="lead">Este é um projeto para fins didáticos, se sinta livre para aprender com ele.</p>
+    <small>Dúvidas, entre em contato pelo email: ljeronimodarocha@gmail.com</small>
+    {{#if user}}
+    {{else}}
+        <hr class="my-4">
+        <p>Crie uma conta e experimente</p>
+        <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Crie uma conta</a>
+    {{/if}}
+</div>
+<h2>Postagens recentes</h2>
+<hr>
+{{#each postagens}}
+<div class="card mt-4">
+    <div class="card-body">
+        <small>Categoria: {{categoria.nome}}</small>
+        <hr>
+        <h3>Título: {{titulo}}</h3>
+        <p>Descrição: {{descricao}}</p>
+        <a href="/postagem/{{slug}}"><button class="btn btn-success">Leia mais</button></a>
+        <hr>
+        <small>Data de publicação: {{data}}</small>
+    </div>
+</div>
+
+{{else}}
+<h3>Nenhuma postagem registrada</h3>
+{{/each}}
